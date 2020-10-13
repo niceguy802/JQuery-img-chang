@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更换背景图</title>
+  <style>
+    #box {
+      width: 600px;
+      height: 350px;
+      margin: 100px auto;
+      position: relative;
+      background-image: url("./img/1.jpg");
+      /* background: no-repeat; */
+      background-position: center;
+      background-size: cover;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      transition: 0.5s linear;
+    }
+
+    .bo {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+  <script src="https:/apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="box"></div>
+  <div class="bo"></div>
+  <button id="btn">点击</button>
+  <script>
+    $(document).ready(function () {
+      var i = 1;
+      setInterval(function () {
+        if (i == 1) {
+          i = 2;
+        } else if (i == 2) {
+          i = 3;
+        } else {
+          i = 1
+        }
+        $('#box').css({
+          "background-image": "url(./img/" + i + ".jpg)"
+        });
+      }, 5000);
+    });
+
+    // let arr = [22, 3, 44, 12, 3, 45, 10];
+    // arr.sort((n1, n2) => {
+    //   return n1 - n2;//从小到大排序
+    //   return n2 - n1;//从大到小排序
+    // });
+    // alert(arr);
+
+    $(() => {
+      $('#btn').click(() => {
+        $('.bo').animate({
+          width: '200px'
+        }, 2000);
+      });
+    })
+
+  </script>
+</body>
+
+</html>
